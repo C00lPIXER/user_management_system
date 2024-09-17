@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS for Animation -->
+    <style>
+      body {
+        background: #fff;
+      }
+      .form-container {
+        margin-top: 100px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.3s ease-in-out;
+      }
+      .form-container h2 {
+        margin-bottom: 20px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .btn-custom {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        transition: background-color 0.3s;
+      }
+      .btn-custom:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="form-container">
+            <h2 class="text-center">Login</h2>
+
+            <% if (typeof message !== "undefined") { %>
+              <p class="text-center" style="color: red;"> <%= message %></p>
+            <% } else if (typeof successmsg !== "undefined") { %>
+              <p class="text-center" style="color: rgb(0, 217, 0);"> <%= successmsg %></p>
+            <% } %>
+            
+            <form action="/login" method="post">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter email" required />
+              </div>
+              <div class="form-group">
+                <label for="passwd">Password</label>
+                <input type="password" for="password" name="passwd" class="form-control" placeholder="Password" required/>
+              </div>
+              <button type="submit" value="Login" class="btn btn-custom btn-block">
+                Login
+              </button>
+              <p class="text-center mt-3">
+                Don't have an account? <a href="/signup">Sign Up</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

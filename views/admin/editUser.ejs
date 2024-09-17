@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit User</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-light d-flex align-items-center justify-content-center"
+    style="height: 100vh"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title text-center mb-4">Edit User</h3>
+
+              <% if(typeof message !== "undefined"){ %>
+              <p class="text-center" style="color: red"><%= message %></p>
+              <% } %>
+
+              <form action="/dashboard/edited" method="POST">
+                <input type="hidden" name="id" value="<%= user._id %>" />
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    value="<%= user.name %>"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    value="<%= user.email %>"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Update
+                </button>
+              </form>
+              <a href="/dashboard" class="btn btn-secondary w-100 mt-3">Back</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
